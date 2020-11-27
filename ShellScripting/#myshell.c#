@@ -1,0 +1,35 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+
+int main()
+{
+
+	// we need two arrays to hold the command
+	// we need poters to hold the parameters list
+
+	char cmd[100], command[100], *parameters[20];
+
+	// array to define environment variable
+
+	char *envp[] = { (char *) "PATH = /bin", 0}
+
+
+  A shell basically
+1. reads user command.
+2. evaluates the command.
+3. print the output.
+4. loop to no.1 again.
+*/
+
+while ( 1 ) {                 //repeat forever
+	type_prompt();              //display prompt on screen
+	read_command ( command, parameters ); // read input from terminal
+	if ( fork() != 0 )          // parent
+		wait ( NULL );            //wait for child
+	else{
+		execve ( commamd, parameters, 0 ); // execute command
+	}
+}

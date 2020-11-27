@@ -1,0 +1,30 @@
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+
+
+int main()
+{
+	char cmd[100], command[100], *parameters[20];
+
+	// environment variable
+
+	char *evnp[] = { (char *) "PATH=/bin",0)
+
+
+
+
+
+
+
+while ( 1 ) {                 //repeat forever
+	type_prompt();              //display prompt on screen
+	read_command ( command, parameters ); // read input from terminal
+	if ( fork() != 0 )          // parent
+		wait ( NULL );            //wait for child
+	else{
+		execve ( commamd, parameters, 0 ); // execute command
+	}
+}
